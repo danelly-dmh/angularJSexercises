@@ -1,0 +1,21 @@
+
+body{
+
+	font-family: Arial;
+
+
+}
+li{
+
+	font-family: "Oswald";
+	font-size: 1.8rem;
+
+	margin-right: 100px;
+}
+h4{
+	font-style: italic;
+
+}
+img{
+	float: left;
+}

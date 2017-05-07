@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html  lang="en" ng-app="store">
+  <head>
+    <meta charset="UTF-8">
+    <title>BookStore</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="css/style.css">
+  </head>
+  <body>
+    <h1><a href="index.html">Libros</a></h1>
+    <!-- Menú de busqueda -->
+    <div class="container-fluid">
+		  <div class="row">
+			  <div class="col-sm-6 col-md-2 col-md-4">
+          <input id="busqueda" placeholder="Búsqueda por Título" type="text" class="form-control" ng-model="" />
+			  </div>
+			  <div class="col-sm-6 col-md-2 col-md-4">
+          <select name="" id="">
+            <option value="1">Ordenar por</option>
+            <option value="2">Autor</option>
+            <option value="3">Editorial</option>
+          </select>
+			  </div>
+			</div>
+		</div>
+    <!-- Despliegue de libros-->
+    <div class="container" ng-controller="StoreController as store">
+      <ul class="list-group">
+      <li class="list-group-item" ng-repeat="product in store.products | orderBy: 'id'">
+        <h3>{{product.titulo | uppercase}} <em class="pull-right">{{product.autor}}</em>
+        <a id="enlaces" href="{{product.link}}">Click here to know more about your favorite book!</a>
+      </h3>
+        <div>
+          <img ng-src="{{product.images[0].full}}"/>
+        </div>
+        <section>
+        <div class="container">
+          <p>{{product.editorial}}</p>
+          <p>{{product.descripcion | lowercase}}</p>
+        </div>
+        </section>
+      </li>
+    </ul>
+    </div>
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.min.js"></script>
+<script src="js/app.js"></script>
+</body>
+</html>
