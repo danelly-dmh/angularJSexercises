@@ -1,6 +1,5 @@
 (function(){
 	var app = angular.module('store',[]);
-
 	var books = [
 	{
 		titulo:'El Juego de Ender',
@@ -67,9 +66,10 @@
   			]
   		}
 	];
+	
 	app.controller('StoreController', function(){
 		this.products = books;
 	});
-	
+
 
 })();

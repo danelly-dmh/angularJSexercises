@@ -14,13 +14,13 @@
     <div class="container-fluid">
 		  <div class="row">
 			  <div class="col-sm-6 col-md-2 col-md-4">
-          <input id="busqueda" placeholder="Búsqueda por Título" type="text" class="form-control" ng-model="" />
+          <input id="busqueda" ng-model="danelly" placeholder="Búsqueda por Título" type="text" class="form-control" ng-model="" />
 			  </div>
 			  <div class="col-sm-6 col-md-2 col-md-4">
-          <select name="" id="">
-            <option value="1">Ordenar por</option>
-            <option value="2">Autor</option>
-            <option value="3">Editorial</option>
+          <select ng-model="danellym" name="" id="">
+            <option value="1">Ordenar por id</option>
+            <option value="autor">Autor</option>
+            <option value="editorial">Editorial</option>
           </select>
 			  </div>
 			</div>
@@ -28,7 +28,7 @@
     <!-- Despliegue de libros-->
     <div class="container" ng-controller="StoreController as store">
       <ul class="list-group">
-      <li class="list-group-item" ng-repeat="product in store.products | orderBy: 'id'">
+      <li class="list-group-item" ng-repeat="product in store.products | filter: danelly | orderBy: danellym">
         <h3>{{product.titulo | uppercase}} <em class="pull-right">{{product.autor}}</em>
         </h3>
         <div>
